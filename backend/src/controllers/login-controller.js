@@ -26,7 +26,7 @@ export const login = async (req, res) => {
                 { userId: filteredUser.id, email: filteredUser.email},
                 "ThisIsNothing",
                 {
-                    expiresIn: "3h",
+                    expiresIn: "4h",
                 }
             );
 

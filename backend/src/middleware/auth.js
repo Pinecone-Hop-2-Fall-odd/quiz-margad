@@ -5,13 +5,13 @@ export const verifyToken = (req, res, next) => {
     req.body.token || req.query.token || req.headers["x-access-token"];
 
     if(!token) {
-        return res.status(403).json({ success: false, message: "User token required"})
+        return res.status(403).json({ success: false, message: "token required"})
     }
     try {
         const decoded = jwt.verify(token, "ThisIsNothing");
         req.users = decoded;
     } catch (error) {
-        return  res.status(402).json({ success: false, message: "User token is incorrect or inactive"})
+        return  res.status(402).json({ success: false, message: "token is incorrect or inactive"})
     }
     return next();
 };
